@@ -1,0 +1,13 @@
+# Create the Romete session from PowerShell and Executing Hammerdb 
+# Create a Variable for Credentials 
+$credentials= Get-Credential
+# Create a variable for Devices List
+$device = Get-Content -Path C:\devices.txt
+# Single session into machine
+#Enter-PSSession -ComputerName 192.168.2.5 -Credential $credentials  
+   
+# Create a New Session and open it 
+$session= New-PSSession -Computername $device -Credential $credentials
+
+# Execute the Hamerdb test on the Session
+  Invoke-Command $session -FilePath C:\Users\hammerdb\HammerDB-4.3\sqlbuild.ps1
