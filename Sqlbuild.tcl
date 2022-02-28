@@ -9,10 +9,10 @@ puts "SETTING CONFIGURATION"
 dbset db mssqls
 diset connection mssqls_uid sa
 diset connection mssqls_pass admin
-diset connection mssqls_server 192.168.2.4
+diset connection mssqls_server sqlserver ip address
 diset connection mssqls_authentication sql
-diset tpcc mssqls_count_ware 1
-diset tpcc mssqls_num_vu 1
+diset tpcc mssqls_count_ware 100 # for 10GB of Data
+diset tpcc mssqls_num_vu 10
 vuset logtotemp 1
 buildschema
 wait_to_complete
