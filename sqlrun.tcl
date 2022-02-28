@@ -16,7 +16,7 @@ return
 }
 puts "SETTING CONFIGURATION"
 dbset db mssqls
-diset connection mssqls_server 192.168.2.
+diset connection mssqls_server sqlserver ip address
 diset connection mssqls_authentication sql
 diset connection mssqls_uid sa
 diset connection mssqls_pass admin
