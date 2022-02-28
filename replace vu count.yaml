@@ -1,0 +1,9 @@
+---
+- name: Replace VU Count with Specific in sqlrun.tcl file
+  hosts: win
+  tasks:
+  - name: replace VU Count
+    win_lineinfile:
+      path: C:\Users\hammerdb\HammerDB-4.3\sqlrun.tcl
+      regexp: '^vuset'
+      line: 'vuset vu 50'
