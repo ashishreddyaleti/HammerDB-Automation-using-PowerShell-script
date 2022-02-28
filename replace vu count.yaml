@@ -2,8 +2,28 @@
 - name: Replace VU Count with Specific in sqlrun.tcl file
   hosts: win
   tasks:
-  - name: replace VU Count
+  - name: change VU Count
     win_lineinfile:
       path: C:\Users\hammerdb\HammerDB-4.3\sqlrun.tcl
       regexp: '^vuset'
       line: 'vuset vu 50'
+  - name: change  Rampup time
+    win_lineinfile:
+      path: C:\Users\hammerdb\HammerDB-4.3\sqlrun.tcl
+      regexp: '^diset tpcc mssqls_rampup 2'
+      line: diset tpcc mssqls_rampup 2
+  - name: change  Duration time
+    win_lineinfile:
+      path: C:\Users\hammerdb\HammerDB-4.3\sqlrun.tcl
+      regexp: '^diset tpcc mssqls_duration 5'
+      line: diset tpcc mssqls_duration 5
+  - name: change total time (RAMP+DURATION)
+    win_lineinfile:
+      path: C:\Users\hammerdb\HammerDB-4.3\sqlrun.tcl
+      regexp: '^runtimer '
+      line: runtimer 500
+  - name: Destroy VU After(> RAMP+Duration+Total)
+    win_lineinfile:
+      path: C:\Users\hammerdb\HammerDB-4.3\sqlrun.tcl
+      regexp: '^after'
+      line: after 800
